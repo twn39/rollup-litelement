@@ -2,23 +2,18 @@ import {html, LitElement, property} from "lit-element";
 
 export class MyElement extends LitElement {
 
-    @property( { type : String }  ) greet = 'hello';
-    /**
-     * Implement `render` to define a template for your element.
-     *
-     * You must provide an implementation of `render` for any element
-     * that uses LitElement as a base class.
-     */
+    @property( { type : String }  )
+    greet = 'hello';
+
+    handleClick(e) {
+        console.log(e);
+        this.greet = 'curry';
+    }
+
     render(){
-        /**
-         * `render` must return a lit-html `TemplateResult`.
-         *
-         * To create a `TemplateResult`, tag a JavaScript template literal
-         * with the `html` helper function:
-         */
         return html`
-      <!-- template content -->
-      <p>Hello litElement with Rollup build. ${this.greet}</p>
-    `;
+            <button @click="${this.handleClick}">click</button>
+            <p>Hello litElement with Rollup build. ${this.greet}</p>
+        `;
     }
 }
