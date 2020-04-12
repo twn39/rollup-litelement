@@ -7,7 +7,7 @@ import livereload from 'rollup-plugin-livereload'
 
 
 export default {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
         {
             file: 'dist/bundle.js',
@@ -22,10 +22,11 @@ export default {
         }
     ],
     plugins: [
-        json(),
         babel({
-            exclude: 'node_modules/**'
+            exclude: 'node_modules/**',
+            extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
         }),
+        json(),
         resolve(),
         serve(),      // index.html should be in root of project
         livereload()

@@ -1,7 +1,8 @@
-import {html, LitElement} from "lit-element";
+import {html, LitElement, property} from "lit-element";
 
 export class MyElement extends LitElement {
 
+    @property( { type : String }  ) greet = 'hello';
     /**
      * Implement `render` to define a template for your element.
      *
@@ -17,7 +18,7 @@ export class MyElement extends LitElement {
          */
         return html`
       <!-- template content -->
-      <p>Hello litElement with Rollup build.</p>
+      <p>Hello litElement with Rollup build. ${this.greet}</p>
     `;
     }
 }
